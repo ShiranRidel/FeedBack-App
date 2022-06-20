@@ -25,6 +25,7 @@
     "server": "json-server --watch db.json --port 5000",
     "dev": "concurrently \"npm run server\" \"npm start\""
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",

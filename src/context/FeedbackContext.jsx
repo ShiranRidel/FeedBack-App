@@ -54,9 +54,15 @@ const updateFeedback = async(id,updItem)=>{
 
   })
   const data = await response.json()
-  setFeedback(
-  feedback.map((item)=>(item.id === id ? {...item,...data} : item))
-)}
+  // NOTE: no need to spread data and item
+  setFeedback(feedback.map((item) => (item.id === id ? data : item)))
+
+  // FIX: this fixes being able to add a feedback after editing
+  setFeedbackEdit({
+    item: {},
+    edit: false,
+  })
+}
 
 // set item to be updated
   const editFeedback = (item)=>{
